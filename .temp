@@ -1,0 +1,611 @@
+{
+  "range": [0, 281],
+  "type": "Program",
+  "body": [{
+    "range": [0, 25],
+    "type": "ImportDeclaration",
+    "specifiers": [{
+      "range": [7, 14],
+      "type": "ImportNamespaceSpecifier",
+      "local": {
+        "range": [12, 14],
+        "type": "Identifier",
+        "name": "d3"
+      }
+    }],
+    "source": {
+      "range": [20, 24],
+      "type": "Literal",
+      "value": "d3",
+      "raw": "'d3'"
+    }
+  }, {
+    "range": [26, 120],
+    "type": "FunctionDeclaration",
+    "id": {
+      "range": [35, 52],
+      "type": "Identifier",
+      "name": "animateSecondStep"
+    },
+    "params": [],
+    "defaults": [],
+    "body": {
+      "range": [55, 120],
+      "type": "BlockStatement",
+      "body": [{
+        "range": [60, 117],
+        "type": "ExpressionStatement",
+        "expression": {
+          "range": [60, 116],
+          "type": "CallExpression",
+          "callee": {
+            "range": [60, 107],
+            "type": "MemberExpression",
+            "computed": false,
+            "object": {
+              "range": [60, 102],
+              "type": "CallExpression",
+              "callee": {
+                "range": [60, 97],
+                "type": "MemberExpression",
+                "computed": false,
+                "object": {
+                  "range": [60, 88],
+                  "type": "CallExpression",
+                  "callee": {
+                    "range": [60, 86],
+                    "type": "MemberExpression",
+                    "computed": false,
+                    "object": {
+                      "range": [60, 75],
+                      "type": "CallExpression",
+                      "callee": {
+                        "range": [60, 69],
+                        "type": "MemberExpression",
+                        "computed": false,
+                        "object": {
+                          "range": [60, 62],
+                          "type": "Identifier",
+                          "name": "d3"
+                        },
+                        "property": {
+                          "range": [63, 69],
+                          "type": "Identifier",
+                          "name": "select"
+                        }
+                      },
+                      "arguments": [{
+                        "range": [70, 74],
+                        "type": "ThisExpression"
+                      }]
+                    },
+                    "property": {
+                      "range": [76, 86],
+                      "type": "Identifier",
+                      "name": "transition"
+                    }
+                  },
+                  "arguments": []
+                },
+                "property": {
+                  "range": [89, 97],
+                  "type": "Identifier",
+                  "name": "duration"
+                }
+              },
+              "arguments": [{
+                "range": [98, 101],
+                "type": "Literal",
+                "value": 1000,
+                "raw": "1e3"
+              }]
+            },
+            "property": {
+              "range": [103, 107],
+              "type": "Identifier",
+              "name": "attr"
+            }
+          },
+          "arguments": [{
+            "range": [108, 111],
+            "type": "Literal",
+            "value": "r",
+            "raw": "\"r\""
+          }, {
+            "range": [113, 115],
+            "type": "Literal",
+            "value": 40,
+            "raw": "40"
+          }]
+        }
+      }]
+    },
+    "generator": false,
+    "expression": false
+  }, {
+    "range": [122, 123],
+    "type": "EmptyStatement"
+  }, {
+    "range": [124, 279],
+    "type": "FunctionDeclaration",
+    "id": {
+      "range": [133, 149],
+      "type": "Identifier",
+      "name": "animateFirstStep"
+    },
+    "params": [],
+    "defaults": [],
+    "body": {
+      "range": [152, 279],
+      "type": "BlockStatement",
+      "body": [{
+        "range": [157, 276],
+        "type": "ExpressionStatement",
+        "expression": {
+          "range": [157, 275],
+          "type": "CallExpression",
+          "callee": {
+            "range": [157, 249],
+            "type": "MemberExpression",
+            "computed": false,
+            "object": {
+              "range": [157, 246],
+              "type": "CallExpression",
+              "callee": {
+                "range": [157, 237],
+                "type": "MemberExpression",
+                "computed": false,
+                "object": {
+                  "range": [157, 227],
+                  "type": "CallExpression",
+                  "callee": {
+                    "range": [157, 223],
+                    "type": "MemberExpression",
+                    "computed": false,
+                    "object": {
+                      "range": [157, 209],
+                      "type": "CallExpression",
+                      "callee": {
+                        "range": [157, 206],
+                        "type": "MemberExpression",
+                        "computed": false,
+                        "object": {
+                          "range": [157, 195],
+                          "type": "CallExpression",
+                          "callee": {
+                            "range": [157, 193],
+                            "type": "MemberExpression",
+                            "computed": false,
+                            "object": {
+                              "range": [157, 177],
+                              "type": "CallExpression",
+                              "callee": {
+                                "range": [157, 171],
+                                "type": "MemberExpression",
+                                "computed": false,
+                                "object": {
+                                  "range": [157, 159],
+                                  "type": "Identifier",
+                                  "name": "d3"
+                                },
+                                "property": {
+                                  "range": [165, 171],
+                                  "type": "Identifier",
+                                  "name": "select"
+                                }
+                              },
+                              "arguments": [{
+                                "range": [172, 176],
+                                "type": "ThisExpression"
+                              }]
+                            },
+                            "property": {
+                              "range": [183, 193],
+                              "type": "Identifier",
+                              "name": "transition"
+                            }
+                          },
+                          "arguments": []
+                        },
+                        "property": {
+                          "range": [201, 206],
+                          "type": "Identifier",
+                          "name": "delay"
+                        }
+                      },
+                      "arguments": [{
+                        "range": [207, 208],
+                        "type": "Literal",
+                        "value": 0,
+                        "raw": "0"
+                      }]
+                    },
+                    "property": {
+                      "range": [215, 223],
+                      "type": "Identifier",
+                      "name": "duration"
+                    }
+                  },
+                  "arguments": [{
+                    "range": [224, 226],
+                    "type": "Literal",
+                    "value": 13,
+                    "raw": "13"
+                  }]
+                },
+                "property": {
+                  "range": [233, 237],
+                  "type": "Identifier",
+                  "name": "attr"
+                }
+              },
+              "arguments": [{
+                "range": [238, 241],
+                "type": "Literal",
+                "value": "r",
+                "raw": "\"r\""
+              }, {
+                "range": [243, 245],
+                "type": "Literal",
+                "value": 10,
+                "raw": "10"
+              }]
+            },
+            "property": {
+              "range": [247, 249],
+              "type": "Identifier",
+              "name": "on"
+            }
+          },
+          "arguments": [{
+            "range": [250, 255],
+            "type": "Literal",
+            "value": "end",
+            "raw": "\"end\""
+          }, {
+            "range": [257, 274],
+            "type": "Identifier",
+            "name": "animateSecondStep"
+          }]
+        }
+      }]
+    },
+    "generator": false,
+    "expression": false
+  }, {
+    "range": [280, 281],
+    "type": "EmptyStatement",
+    "trailingComments": [{
+      "type": "Line",
+      "value": "export { animateSecondStep, animateFirstStep };",
+      "range": {
+        "0": 286,
+        "1": 335
+      },
+      "extendedRange": [281, 335]
+    }]
+  }],
+  "sourceType": "module",
+  "comments": [{
+    "type": "Line",
+    "value": "export { animateSecondStep, animateFirstStep };",
+    "range": [286, 335]
+  }],
+  "tokens": [{
+    "type": "Keyword",
+    "value": "import",
+    "range": [0, 6]
+  }, {
+    "type": "Punctuator",
+    "value": "*",
+    "range": [7, 8]
+  }, {
+    "type": "Identifier",
+    "value": "as",
+    "range": [9, 11]
+  }, {
+    "type": "Identifier",
+    "value": "d3",
+    "range": [12, 14]
+  }, {
+    "type": "Identifier",
+    "value": "from",
+    "range": [15, 19]
+  }, {
+    "type": "String",
+    "value": "'d3'",
+    "range": [20, 24]
+  }, {
+    "type": "Punctuator",
+    "value": ";",
+    "range": [24, 25]
+  }, {
+    "type": "Keyword",
+    "value": "function",
+    "range": [26, 34]
+  }, {
+    "type": "Identifier",
+    "value": "animateSecondStep",
+    "range": [35, 52]
+  }, {
+    "type": "Punctuator",
+    "value": "(",
+    "range": [52, 53]
+  }, {
+    "type": "Punctuator",
+    "value": ")",
+    "range": [53, 54]
+  }, {
+    "type": "Punctuator",
+    "value": "{",
+    "range": [55, 56]
+  }, {
+    "type": "Identifier",
+    "value": "d3",
+    "range": [60, 62]
+  }, {
+    "type": "Punctuator",
+    "value": ".",
+    "range": [62, 63]
+  }, {
+    "type": "Identifier",
+    "value": "select",
+    "range": [63, 69]
+  }, {
+    "type": "Punctuator",
+    "value": "(",
+    "range": [69, 70]
+  }, {
+    "type": "Keyword",
+    "value": "this",
+    "range": [70, 74]
+  }, {
+    "type": "Punctuator",
+    "value": ")",
+    "range": [74, 75]
+  }, {
+    "type": "Punctuator",
+    "value": ".",
+    "range": [75, 76]
+  }, {
+    "type": "Identifier",
+    "value": "transition",
+    "range": [76, 86]
+  }, {
+    "type": "Punctuator",
+    "value": "(",
+    "range": [86, 87]
+  }, {
+    "type": "Punctuator",
+    "value": ")",
+    "range": [87, 88]
+  }, {
+    "type": "Punctuator",
+    "value": ".",
+    "range": [88, 89]
+  }, {
+    "type": "Identifier",
+    "value": "duration",
+    "range": [89, 97]
+  }, {
+    "type": "Punctuator",
+    "value": "(",
+    "range": [97, 98]
+  }, {
+    "type": "Numeric",
+    "value": "1e3",
+    "range": [98, 101]
+  }, {
+    "type": "Punctuator",
+    "value": ")",
+    "range": [101, 102]
+  }, {
+    "type": "Punctuator",
+    "value": ".",
+    "range": [102, 103]
+  }, {
+    "type": "Identifier",
+    "value": "attr",
+    "range": [103, 107]
+  }, {
+    "type": "Punctuator",
+    "value": "(",
+    "range": [107, 108]
+  }, {
+    "type": "String",
+    "value": "\"r\"",
+    "range": [108, 111]
+  }, {
+    "type": "Punctuator",
+    "value": ",",
+    "range": [111, 112]
+  }, {
+    "type": "Numeric",
+    "value": "40",
+    "range": [113, 115]
+  }, {
+    "type": "Punctuator",
+    "value": ")",
+    "range": [115, 116]
+  }, {
+    "type": "Punctuator",
+    "value": ";",
+    "range": [116, 117]
+  }, {
+    "type": "Punctuator",
+    "value": "}",
+    "range": [119, 120]
+  }, {
+    "type": "Punctuator",
+    "value": ";",
+    "range": [122, 123]
+  }, {
+    "type": "Keyword",
+    "value": "function",
+    "range": [124, 132]
+  }, {
+    "type": "Identifier",
+    "value": "animateFirstStep",
+    "range": [133, 149]
+  }, {
+    "type": "Punctuator",
+    "value": "(",
+    "range": [149, 150]
+  }, {
+    "type": "Punctuator",
+    "value": ")",
+    "range": [150, 151]
+  }, {
+    "type": "Punctuator",
+    "value": "{",
+    "range": [152, 153]
+  }, {
+    "type": "Identifier",
+    "value": "d3",
+    "range": [157, 159]
+  }, {
+    "type": "Punctuator",
+    "value": ".",
+    "range": [164, 165]
+  }, {
+    "type": "Identifier",
+    "value": "select",
+    "range": [165, 171]
+  }, {
+    "type": "Punctuator",
+    "value": "(",
+    "range": [171, 172]
+  }, {
+    "type": "Keyword",
+    "value": "this",
+    "range": [172, 176]
+  }, {
+    "type": "Punctuator",
+    "value": ")",
+    "range": [176, 177]
+  }, {
+    "type": "Punctuator",
+    "value": ".",
+    "range": [182, 183]
+  }, {
+    "type": "Identifier",
+    "value": "transition",
+    "range": [183, 193]
+  }, {
+    "type": "Punctuator",
+    "value": "(",
+    "range": [193, 194]
+  }, {
+    "type": "Punctuator",
+    "value": ")",
+    "range": [194, 195]
+  }, {
+    "type": "Punctuator",
+    "value": ".",
+    "range": [200, 201]
+  }, {
+    "type": "Identifier",
+    "value": "delay",
+    "range": [201, 206]
+  }, {
+    "type": "Punctuator",
+    "value": "(",
+    "range": [206, 207]
+  }, {
+    "type": "Numeric",
+    "value": "0",
+    "range": [207, 208]
+  }, {
+    "type": "Punctuator",
+    "value": ")",
+    "range": [208, 209]
+  }, {
+    "type": "Punctuator",
+    "value": ".",
+    "range": [214, 215]
+  }, {
+    "type": "Identifier",
+    "value": "duration",
+    "range": [215, 223]
+  }, {
+    "type": "Punctuator",
+    "value": "(",
+    "range": [223, 224]
+  }, {
+    "type": "Numeric",
+    "value": "13",
+    "range": [224, 226]
+  }, {
+    "type": "Punctuator",
+    "value": ")",
+    "range": [226, 227]
+  }, {
+    "type": "Punctuator",
+    "value": ".",
+    "range": [232, 233]
+  }, {
+    "type": "Identifier",
+    "value": "attr",
+    "range": [233, 237]
+  }, {
+    "type": "Punctuator",
+    "value": "(",
+    "range": [237, 238]
+  }, {
+    "type": "String",
+    "value": "\"r\"",
+    "range": [238, 241]
+  }, {
+    "type": "Punctuator",
+    "value": ",",
+    "range": [241, 242]
+  }, {
+    "type": "Numeric",
+    "value": "10",
+    "range": [243, 245]
+  }, {
+    "type": "Punctuator",
+    "value": ")",
+    "range": [245, 246]
+  }, {
+    "type": "Punctuator",
+    "value": ".",
+    "range": [246, 247]
+  }, {
+    "type": "Identifier",
+    "value": "on",
+    "range": [247, 249]
+  }, {
+    "type": "Punctuator",
+    "value": "(",
+    "range": [249, 250]
+  }, {
+    "type": "String",
+    "value": "\"end\"",
+    "range": [250, 255]
+  }, {
+    "type": "Punctuator",
+    "value": ",",
+    "range": [255, 256]
+  }, {
+    "type": "Identifier",
+    "value": "animateSecondStep",
+    "range": [257, 274]
+  }, {
+    "type": "Punctuator",
+    "value": ")",
+    "range": [274, 275]
+  }, {
+    "type": "Punctuator",
+    "value": ";",
+    "range": [275, 276]
+  }, {
+    "type": "Punctuator",
+    "value": "}",
+    "range": [278, 279]
+  }, {
+    "type": "Punctuator",
+    "value": ";",
+    "range": [280, 281]
+  }]
+}
