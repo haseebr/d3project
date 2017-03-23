@@ -16,7 +16,7 @@ function connectAndGetData(gt, lt, e, callback) {
 
 }
 
-//connectAndGetData(1490080284931, 1490080275908, (items) => {});
+//connectAndGetData(1490309269726, 1490309272339, (items) => {});
 
 var getDataRange = function(gt, lt, e, db, callback) {
 
@@ -31,7 +31,7 @@ var getDataRange = function(gt, lt, e, db, callback) {
       for (var i in items) {
         values.push([items[i].t, items[i].result[e]]);
       }
-      console.log("imside ret", gt, lt, e, values);
+      //console.log("imside ret", gt, lt, e, values);
       callback(values);
     });
   });

@@ -40,22 +40,21 @@ var a = app.listen(app.get('port'), function() {
 var io = require('socket.io')(a);
 
 function emitNewData(data, callback) {
-  console.log("here");
-  retrieve.connectAndGetData(gt, lt, e,
+  gt = (new Date()).getTime();
+  var _gt = 1490310149726;
+  lt = gt - 300000;
+  retrieve.connectAndGetData(gt, lt, data,
     (_items) => {
-      items = _items;
-      console.log("hellodsdsdsdsds");
+      var oldLastValue = items[items.length - 1];
+      var currentLastValue = _items[_items.length - 1];
+      console.log(oldLastValue, currentLastValue);
+      if (oldLastValue[1] != currentLastValue[1]) {
+        callback(currentLastValue);
+      }
     });
-  lt = (new Date()).getTime();
-  retrieve.connectAndGetData(gt, lt, data, (_items) => {
-    console.log(_items, "lol");
-    var oldLastValue = items[items.length - 1];
-    var currentLastValue = _items[_items.length - 1];
-    console.log(oldLastValue, currentLastValue);
-    if (oldLastValue[1] != currentLastValue[1]) {
-      callback(currentLastValue);
-    }
-  });
+    /*retrieve.connectAndGetData(gt, lt, e, (_items) => {
+      console.log(">>>>>>", items, _items);
+    });*/
 
 }
 
@@ -66,6 +65,7 @@ io.on('connection', function(socket) {
   socket.on('exchange', function(data) {
     setInterval(function() {
       emitNewData(data, (d) => {
+        console.log(d);
         socket.emit('data', d);
       });
     }, 2000);

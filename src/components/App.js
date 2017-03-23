@@ -17,7 +17,7 @@ export default class App extends React.Component {
       'sixty': 3600000
     };
     var time = (new Date()).getTime();
-    this.gt = time - intervals.sixty;
+    this.gt = time - intervals.five;
     this.lt = time;
 
     this.state = {
