@@ -47,7 +47,7 @@ var renderChart = function(el, s) {
     .append("svg")
     .attr("width", s.width)
     .attr("height", s.height)
-    .style("padding-left", "21px");
+    .style("padding-left", "30px");
 
   var g = SVG.append("g")
     .attr("transform", "translate(10, 10)");
