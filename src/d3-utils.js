@@ -45,8 +45,8 @@ var renderChart = function(el, s) {
   var SVG = d3.selectAll("svg").remove();
   var SVG = d3.select('.Chart')
     .append("svg")
-    .attr("width", s.width)
-    .attr("height", s.height)
+    .attr("width", "700px")
+    .attr("height", "300px")
     .style("padding-left", "30px");
 
   var g = SVG.append("g")
