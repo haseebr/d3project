@@ -48,10 +48,11 @@ function emitNewData(data, callback) {
       var oldLastValue = items[items.length - 1];
       var currentLastValue = _items[_items.length - 1];
       //console.log(oldLastValue, currentLastValue);
-      if (oldLastValue[1] != currentLastValue[1]) {
+      callback(currentLastValue);
+      /*if (oldLastValue[1] != currentLastValue[1]) {
         console.log("new value detected", oldLastValue, currentLastValue);
         callback(currentLastValue);
-      }
+      }*/
 
       items = _items;
     });
@@ -69,10 +70,10 @@ io.on('connection', function(socket) {
     setInterval(function() {
       //console.log("lol");
       emitNewData(data, (d) => {
-        //console.log(d);
+        console.log(d);
         socket.emit('data', d);
       });
-    }, 2000);
+    }, 5000);
   });
 });
 

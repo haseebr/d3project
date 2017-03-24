@@ -50,14 +50,14 @@ var renderChart = function(el, s) {
     .style("padding-left", "21px");
 
   var g = SVG.append("g")
-    .attr("transform", "translate(20, 30)");
+    .attr("transform", "translate(10, 10)");
 
   g.append("g")
     .call(myAxes(s.data).axisY);
 
-  console.log(s.data[s.data.length - 1]);
+  var h = window.innerHeight - 40;
   g.append("g")
-    .attr("transform", "translate(0, 633)")
+    .attr("transform", "translate(0, " + h + ")")
     .call(myAxes(s.data).axisX);
 
   g.append('path')

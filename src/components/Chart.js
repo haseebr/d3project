@@ -22,7 +22,7 @@ export default class Chart extends React.Component {
 
   setStateOnResize() {
     this.setState({
-      height: window.innerHeight - 50,
+      height: window.innerHeight - 10,
       width: window.innerWidth - 100
     });
 
@@ -31,7 +31,7 @@ export default class Chart extends React.Component {
 
   handleNewData(data) {
     var d = this.state.data;
-    d.push(data);
+    d.shift(data);
     this.setState({
       data: d
     });
