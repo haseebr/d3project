@@ -7,7 +7,7 @@ function connectAndGetData(gt, lt, e, callback) {
   MongoClient.connect(DbUrl, function(err, db) {
 
     assert.equal(null, err);
-    console.log("Database initialized");
+    //console.log("Database initialized");
     getDataRange(lt, gt, e, db, function(items) {
       callback(items);
       db.close();
