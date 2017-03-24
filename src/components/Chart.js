@@ -39,7 +39,7 @@ export default class Chart extends React.Component {
   }
 
   componentDidMount() {
-    var socket = io.connect("http://localhost:5000");
+    var socket = io.connect("http://37.139.31.20:5000");
     socket.on('data', this.handleNewData);
     socket.emit('exchange', this.props.exchange);
 
