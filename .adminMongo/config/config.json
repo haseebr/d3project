@@ -1,8 +1,0 @@
-{
-  "connections": {
-    "mydb": {
-      "connection_string": "mongodb://localhost:27017/myproject",
-      "connection_options": {}
-    }
-  }
-}
