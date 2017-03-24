@@ -31,7 +31,8 @@ export default class Chart extends React.Component {
 
   handleNewData(data) {
     var d = this.state.data;
-    d.shift(data);
+    d.push(data);
+    d.shift();
     this.setState({
       data: d
     });
