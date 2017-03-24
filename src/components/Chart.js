@@ -35,6 +35,7 @@ export default class Chart extends React.Component {
     this.setState({
       data: d
     });
+    console.log(d);
     utils.renderChart(this.el, this.state);
   }
 
