@@ -57,7 +57,7 @@ var renderChart = function(el, s) {
 
   var h = window.innerHeight - 40;
   g.append("g")
-    .attr("transform", "translate(0, " + h + ")")
+    .attr("transform", "translate(0, 253)")
     .call(myAxes(s.data).axisX);
 
   g.append('path')
