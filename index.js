@@ -84,7 +84,7 @@ var loop = setInterval(() => {
   counter++;
   db.insertToDb();
 
-  if (counter > 1000) {
+  if (counter > 1000000) {
     clearInterval(loop);
   }
-}, 3000);
+}, 5000);

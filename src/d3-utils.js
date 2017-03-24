@@ -13,7 +13,7 @@ var myAxes = function(data) {
     }))
     .range([window.innerHeight - 50, 0]);
 
-  var axisX = d3.axisTop(x);
+  var axisX = d3.axisBottom(x);
   var axisY = d3.axisLeft(y);
 
   return {
@@ -46,7 +46,7 @@ var renderChart = function(el, s) {
   var SVG = d3.select('.Chart')
     .append("svg")
     .attr("width", s.width)
-    .attr("height", s.width)
+    .attr("height", s.height)
     .style("padding-left", "21px");
 
   var g = SVG.append("g")
@@ -57,7 +57,7 @@ var renderChart = function(el, s) {
 
   console.log(s.data[s.data.length - 1]);
   g.append("g")
-    .attr("transform", "translate(20, 633)")
+    .attr("transform", "translate(0, 633)")
     .call(myAxes(s.data).axisX);
 
   g.append('path')
@@ -67,6 +67,7 @@ var renderChart = function(el, s) {
     .attr("stroke-linejoin", "round")
     .attr("stroke-linecap", "round")
     .attr("stroke-width", 1.5)
+    .attr("transform", "translate(2, 0)")
     .attr("d", getLine(s.data));
 };
 
