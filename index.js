@@ -22,7 +22,7 @@ router.get('/:gt-:lt-:e', function(req, res) {
   gt = parseInt(req.params.gt);
   lt = parseInt(req.params.lt);
   e = req.params.e;
-  console.log(e);
+  //console.log(e);
   retrieve.connectAndGetData(gt, lt, e,
     (_items) => {
       items = _items;
@@ -47,10 +47,13 @@ function emitNewData(data, callback) {
     (_items) => {
       var oldLastValue = items[items.length - 1];
       var currentLastValue = _items[_items.length - 1];
-      console.log(oldLastValue, currentLastValue);
+      //console.log(oldLastValue, currentLastValue);
       if (oldLastValue[1] != currentLastValue[1]) {
+        console.log("new value detected", oldLastValue, currentLastValue);
         callback(currentLastValue);
       }
+
+      items = _items;
     });
     /*retrieve.connectAndGetData(gt, lt, e, (_items) => {
       console.log(">>>>>>", items, _items);
@@ -64,11 +67,24 @@ io.on('connection', function(socket) {
   }, 20000);*/
   socket.on('exchange', function(data) {
     setInterval(function() {
-      console.log("lol");
+      //console.log("lol");
       emitNewData(data, (d) => {
-        console.log(d);
+        //console.log(d);
         socket.emit('data', d);
       });
     }, 2000);
   });
 });
+
+var counter = 0;
+
+var db = require('./db.js');
+
+var loop = setInterval(() => {
+  counter++;
+  db.insertToDb();
+
+  if (counter > 1000) {
+    clearInterval(loop);
+  }
+}, 3000);
