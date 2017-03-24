@@ -5,13 +5,15 @@ var myAxes = function(data) {
     .domain(d3.extent(data, function(d) {
       return d[0];
     }))
-    .range([0, window.innerWidth - 100]);
+    //    .range([0, window.innerWidth - 100]);
+    .range([0, 680]);
 
   var y = d3.scaleLinear()
     .domain(d3.extent(data, function(d) {
       return d[1];
     }))
-    .range([window.innerHeight - 50, 0]);
+    //    .range([window.innerHeight - 50, 0]);
+    .range([280, 0]);
 
   var axisX = d3.axisBottom(x);
   var axisY = d3.axisLeft(y);
