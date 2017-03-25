@@ -74,7 +74,7 @@ io.on('connection', function(socket) {
         console.log(d);
         socket.emit('data', d);
       });
-    }, 5000);
+    }, 2000);
   });
 });
 
