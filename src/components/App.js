@@ -50,10 +50,7 @@ export default class App extends React.Component {
   render() {
     var cur = (new Date()).getTime();
     if (this.state.data) {
-      return (
-        <div className="mainContainer">
-          <Chart exchange={ 'coinbase:btcusd' } data={ this.state.data } />
-        </div>);
+      return <Chart exchange={ 'coinbase:btcusd' } data={ this.state.data } />;
     } else {
       return <div>Loading...</div>;
     }

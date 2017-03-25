@@ -73,9 +73,9 @@ var renderChart = function(el, s) {
     .attr("d", getLine(s.data));
 
   g.append("text")
-    .attr("x", "600")
+    .attr("x", "500")
     .attr("y", "20")
-    .text("$ per BTC");
+    .text("$" + s.data[s.data.length - 1][1] + " per BTC");
 };
 
 export { renderChart };
