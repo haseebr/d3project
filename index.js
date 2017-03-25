@@ -31,6 +31,7 @@ router.get('/:gt-:lt-:e', function(req, res) {
 
 });
 
+
 app.use('/data/', router);
 
 var a = app.listen(app.get('port'), function() {
@@ -38,7 +39,7 @@ var a = app.listen(app.get('port'), function() {
 });
 
 var io = require('socket.io')(a);
-
+var lastUpdated = 0;
 function emitNewData(data, callback) {
   gt = (new Date()).getTime();
   var _gt = 1490310149726;
@@ -51,6 +52,7 @@ function emitNewData(data, callback) {
       // callback(currentLastValue);
       if (oldLastValue[1] != currentLastValue[1]) {
         console.log("new value detected", oldLastValue, currentLastValue);
+        lastUpdated = (new Date()).getTime();
         callback(currentLastValue);
       }
       items = _items;
@@ -87,4 +89,4 @@ var loop = setInterval(() => {
   if (counter > 1000000) {
     clearInterval(loop);
   }
-}, 7000);
+}, 10000);

@@ -3,6 +3,8 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as utils from '../d3-utils.js';
 
+import * as LastUpdated from '../components/LastUpdated.js';
+
 import $ from 'jquery';
 
 export default class Chart extends React.Component {
@@ -52,7 +54,10 @@ export default class Chart extends React.Component {
 
   render() {
     console.log(this.props.exchange);
-    return (<div className="Chart">
+    var cur = (new Date()).getTime();
+    return (<div className="ChartContainer">
+              <div className="Chart">
+              </div>
             </div>);
 
   }
