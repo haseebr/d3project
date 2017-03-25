@@ -28,7 +28,10 @@ export default class App extends React.Component {
 
 
   componentDidMount() {
-    $.getJSON('http://37.139.31.20:5000/data/'
+    var host = window.location.host;
+    var url = "http://" + host;
+    console.log(url);
+    $.getJSON(url + '/data/'
       + this.lt + '-' + this.gt + '-coinbase:btcusd?callback=?')
       .then((data) => {
         var oy = 0;

@@ -42,7 +42,9 @@ var insertDocuments = function(db, callback) {
     data = JSON.parse(data);
 
     data.t = (new Date()).getTime();
-    //console.log(data.allowance.remaining);
+    if (data) {
+      console.log(data.allowance.remaining);
+    }
     collection.insertMany([data], function(err, result) {
       assert.equal(err, null);
       assert.equal(1, result.result.n);

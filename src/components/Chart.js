@@ -36,12 +36,13 @@ export default class Chart extends React.Component {
     this.setState({
       data: d
     });
-    console.log(d);
     utils.renderChart(this.el, this.state);
   }
 
   componentDidMount() {
-    var socket = io.connect("http://37.139.31.20:5000");
+    var host = window.location.host;
+    var url = "http://" + host;
+    var socket = io.connect(url);
     socket.on('data', this.handleNewData);
     socket.emit('exchange', this.props.exchange);
 

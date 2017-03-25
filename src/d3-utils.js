@@ -15,7 +15,7 @@ var myAxes = function(data) {
     //    .range([window.innerHeight - 50, 0]);
     .range([280, 0]);
 
-  var axisX = d3.axisBottom(x);
+  var axisX = d3.axisTop(x);
   var axisY = d3.axisLeft(y);
 
   return {
@@ -59,7 +59,7 @@ var renderChart = function(el, s) {
 
   var h = window.innerHeight - 40;
   g.append("g")
-    .attr("transform", "translate(0, 253)")
+    .attr("transform", "translate(0, 283)")
     .call(myAxes(s.data).axisX);
 
   g.append('path')
@@ -71,6 +71,11 @@ var renderChart = function(el, s) {
     .attr("stroke-width", 1.5)
     .attr("transform", "translate(2, 0)")
     .attr("d", getLine(s.data));
+
+  g.append("text")
+    .attr("x", "600")
+    .attr("y", "20")
+    .text("$ per BTC");
 };
 
 export { renderChart };
