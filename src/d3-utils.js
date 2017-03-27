@@ -47,20 +47,24 @@ var renderChart = function(el, s) {
   var SVG = d3.selectAll("svg").remove();
   var SVG = d3.select('.Chart')
     .append("svg")
-    .attr("width", "700px")
-    .attr("height", "300px")
-    .style("padding-left", "30px");
+    // .attr("width", "700px")
+    // .attr("height", "300px")
+    .attr("width", "100%")
+    .attr("height", "100%")
+    .attr("viewBox", "0 0 800 300");
+    // .style("padding-left", "30px");
 
   var g = SVG.append("g")
     .attr("transform", "translate(10, 10)");
 
-  g.append("g")
-    .call(myAxes(s.data).axisY);
+  // g.append("g")
+    //   .call(myAxes(s.data).axisY);
 
-  var h = window.innerHeight - 40;
-  g.append("g")
-    .attr("transform", "translate(0, 283)")
-    .call(myAxes(s.data).axisX);
+  // var h = window.innerHeight - 40;
+
+  // g.append("g")
+    //   .attr("transform", "translate(0, 283)")
+    //   .call(myAxes(s.data).axisX);
 
   g.append('path')
     .datum(s.data)
