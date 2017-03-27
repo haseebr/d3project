@@ -37,6 +37,7 @@ export default class Chart extends React.Component {
     this.setState({
       data: d
     });
+    console.log(d[0][0] - d[d.length - 1][0]);
     utils.renderChart(this.el, this.state);
   }
 
