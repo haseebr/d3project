@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as d3 from 'd3';
+import * as u from '../../utils';
 
 import Chart from '../components/Chart';
 
@@ -31,7 +32,7 @@ export default class App extends React.Component {
     var host = window.location.host;
     var url = "http://" + host;
     console.log(url);
-    $.getJSON(url + '/data/'
+    $.getJSON(u.getHost() + '/data/'
       + this.lt + '-' + this.gt + '-coinbase:btcusd?callback=?')
       .then((data) => {
         var oy = 0;

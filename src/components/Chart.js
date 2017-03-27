@@ -2,6 +2,7 @@ import * as d3 from 'd3';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as utils from '../d3-utils.js';
+import * as u from '../../utils';
 
 
 import $ from 'jquery';
@@ -44,6 +45,7 @@ export default class Chart extends React.Component {
   componentDidMount() {
     var host = window.location.host;
     var url = "http://" + host;
+    url = u.getHost();
     var socket = io.connect(url);
     socket.on('data', this.handleNewData);
     socket.emit('exchange', this.props.exchange);
