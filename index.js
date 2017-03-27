@@ -41,9 +41,9 @@ var a = app.listen(app.get('port'), function() {
 var io = require('socket.io')(a);
 var lastUpdated = 0;
 function emitNewData(data, callback) {
-  lt = (new Date()).getTime();
+  gt = (new Date()).getTime();
   var _gt = 1490310149726;
-  gt = lt - 3600000;
+  lt = gt - 3600000;
   console.log(lt, gt);
   retrieve.connectAndGetData(gt, lt, data,
     (_items) => {
