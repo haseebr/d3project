@@ -31,7 +31,7 @@ var getDataRange = function(gt, lt, e, db, callback) {
       for (var i in items) {
         values.push([items[i].t, items[i].result[e]]);
       }
-      //console.log("imside ret", gt, lt, e, values);
+      console.log("imside ret", gt, lt, e, values);
       callback(values);
     });
   });
