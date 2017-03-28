@@ -25,7 +25,6 @@ router.get('/:gt-:lt-:e', function(req, res) {
   //console.log(e);
   retrieve.connectAndGetData(gt, lt, e,
     (_items) => {
-      console.log(_items);
       items = _items;
       res.jsonp(items);
     });
@@ -48,7 +47,7 @@ function emitNewData(data, callback) {
   console.log(lt, gt);
   retrieve.connectAndGetData(gt, lt, data,
     (_items) => {
-      console.log(_items);
+      // console.log(_items);
       var oldLastValue = items[items.length - 1];
       var currentLastValue = _items[_items.length - 1];
       console.log(oldLastValue, currentLastValue);
