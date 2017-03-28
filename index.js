@@ -49,7 +49,7 @@ function emitNewData(data, callback) {
     (_items) => {
       var oldLastValue = items[items.length - 1];
       var currentLastValue = _items[_items.length - 1];
-      //console.log(oldLastValue, currentLastValue);
+      console.log(oldLastValue, currentLastValue);
       callback(currentLastValue);
       if (oldLastValue[1] != currentLastValue[1]) {
         console.log("new value detected", oldLastValue, currentLastValue);
