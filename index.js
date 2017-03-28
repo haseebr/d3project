@@ -25,6 +25,7 @@ router.get('/:gt-:lt-:e', function(req, res) {
   //console.log(e);
   retrieve.connectAndGetData(gt, lt, e,
     (_items) => {
+      console.log(_items);
       items = _items;
       res.jsonp(items);
     });
