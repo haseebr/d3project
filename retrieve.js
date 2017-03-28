@@ -29,9 +29,9 @@ var getDataRange = function(gt, lt, e, db, callback) {
     }).toArray((err, items) => {
       var values = [];
       for (var i in items) {
+        console.log("imside ret", gt, lt, e, values);
         values.push([items[i].t, items[i].result[e]]);
       }
-      console.log("imside ret", gt, lt, e, values);
       callback(values);
     });
   });
