@@ -23,13 +23,12 @@ var getDataRange = function(gt, lt, e, db, callback) {
   var result = db.collection('documents', (err, collection) => {
     collection.find({
       t: {
-        $gt: gt,
-        $lt: lt
+        $gt: lt,
+        $lt: gt
       }
     }).toArray((err, items) => {
       var values = [];
       for (var i in items) {
-        console.log("lol");
         console.log("imside ret", gt, lt, e, items);
         values.push([items[i].t, items[i].result[e]]);
       }
