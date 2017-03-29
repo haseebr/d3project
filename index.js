@@ -72,7 +72,6 @@ io.on('connection', function(socket) {
   socket.on('exchange', function(data) {
     setInterval(function() {
       emitNewData(data, (d) => {
-        console.log(d);
         socket.emit('data', d);
       });
     }, 2000);
