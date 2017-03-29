@@ -27,9 +27,9 @@ var getDataRange = function(gt, lt, e, db, callback) {
         $lt: lt
       }
     }).toArray((err, items) => {
-      console.log("error", err);
       var values = [];
       for (var i in items) {
+        console.log(items[i]);
         values.push([items[i].t, items[i].result[e]]);
       }
       callback(values);
