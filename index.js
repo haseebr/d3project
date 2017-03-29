@@ -22,7 +22,6 @@ router.get('/:gt-:lt-:e', function(req, res) {
   gt = parseInt(req.params.gt);
   lt = parseInt(req.params.lt);
   e = req.params.e;
-  //console.log(e);
   retrieve.connectAndGetData(gt, lt, e,
     (_items) => {
       items = _items;
@@ -47,7 +46,6 @@ function emitNewData(data, callback) {
     (_items) => {
       var oldLastValue = items[items.length - 1];
       var currentLastValue = _items[_items.length - 1];
-      console.log(oldLastValue, currentLastValue);
       if (oldLastValue[1] != currentLastValue[1]) {
         console.log("new value detected", oldLastValue, currentLastValue);
         callback(currentLastValue);
@@ -61,7 +59,6 @@ io.on('connection', function(socket) {
   socket.on('exchange', function(data) {
     setInterval(function() {
       emitNewData(data, (d) => {
-        console.log(data);
         socket.emit('data', d);
       });
     }, 2000);
