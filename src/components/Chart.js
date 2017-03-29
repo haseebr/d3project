@@ -49,12 +49,14 @@ export default class Chart extends React.Component {
     var socket = io.connect(url);
     var el = ReactDOM.findDOMNode(this);
 
+    var exCur = this.props.exchange + ':' + this.props.currency;
+
     socket.on('data', this.handleNewData);
-    socket.emit('exchange', this.props.exchange);
+    socket.emit('exchange', exCur);
 
     // $.getJSON(url + '/data/'
     //   + this.lt + '-' + this.gt + '-coinbase:btcusd?callback=?')
-    var urlString = `${url}/data/${this.state.lt}-${this.state.gt}-${this.props.exchange}:${this.props.currency}?callback=?`;
+    var urlString = `${url}/data/${this.state.lt}-${this.state.gt}-${exCur}?callback=?`;
 
     $.getJSON(urlString)
       .then((data) => {

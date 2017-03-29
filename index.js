@@ -42,35 +42,26 @@ var io = require('socket.io')(a);
 var lastUpdated = 0;
 function emitNewData(data, callback) {
   lt = (new Date()).getTime();
-  var _gt = 1490310149726;
   gt = lt - 3600000;
-  console.log(lt, gt);
   retrieve.connectAndGetData(lt, gt, data,
     (_items) => {
       var oldLastValue = items[items.length - 1];
       var currentLastValue = _items[_items.length - 1];
       console.log(oldLastValue, currentLastValue);
-      callback(currentLastValue);
       if (oldLastValue[1] != currentLastValue[1]) {
         console.log("new value detected", oldLastValue, currentLastValue);
-        lastUpdated = (new Date()).getTime();
         callback(currentLastValue);
       }
       items = _items;
     });
-    /*retrieve.connectAndGetData(gt, lt, e, (_items) => {
-      console.log(">>>>>>", items, _items);
-    });*/
 
 }
 
 io.on('connection', function(socket) {
-  /*setInterval(function() {
-    socket.emit('data', [(new Date()).getTime(), Math.random() * 3000]);
-  }, 20000);*/
   socket.on('exchange', function(data) {
     setInterval(function() {
       emitNewData(data, (d) => {
+        console.log(data);
         socket.emit('data', d);
       });
     }, 2000);
