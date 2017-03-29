@@ -34,10 +34,8 @@ export default class Chart extends React.Component {
 
   handleNewData(data) {
 
-    console.log("new data", data);
 
     this.setState((prevState, props) => {
-      console.log(data);
       prevState.data.push(data);
       prevState.data.shift();
     });
