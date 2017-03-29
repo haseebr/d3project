@@ -29,7 +29,7 @@ var getDataRange = function(gt, lt, e, db, callback) {
     }).toArray((err, items) => {
       var values = [];
       for (var i in items) {
-        console.log(items[i]);
+        console.log("items", items[i]);
         values.push([items[i].t, items[i].result[e]]);
       }
       callback(values);
