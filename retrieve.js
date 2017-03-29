@@ -23,8 +23,8 @@ var getDataRange = function(gt, lt, e, db, callback) {
   var result = db.collection('documents', (err, collection) => {
     collection.find({
       t: {
-        $gt: lt,
-        $lt: gt
+        $gt: gt,
+        $lt: lt
       }
     }).toArray((err, items) => {
       var values = [];
