@@ -20,6 +20,7 @@ function connectAndGetData(gt, lt, e, callback) {
 
 var getDataRange = function(gt, lt, e, db, callback) {
 
+  console.log(e);
   var result = db.collection('documents', (err, collection) => {
     collection.find({
       t: {
@@ -29,7 +30,6 @@ var getDataRange = function(gt, lt, e, db, callback) {
     }).toArray((err, items) => {
       var values = [];
       for (var i in items) {
-        console.log("items", items[i]);
         values.push([items[i].t, items[i].result[e]]);
       }
       callback(values);
