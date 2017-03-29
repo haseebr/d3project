@@ -45,7 +45,7 @@ function emitNewData(data, callback) {
   var _gt = 1490310149726;
   gt = lt - 3600000;
   console.log(lt, gt);
-  retrieve.connectAndGetData(gt, lt, data,
+  retrieve.connectAndGetData(lt, gt, data,
     (_items) => {
       // console.log(_items);
       var oldLastValue = items[items.length - 1];
