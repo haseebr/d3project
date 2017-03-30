@@ -34,6 +34,9 @@ export default class App extends React.Component {
   }
   render() {
     var cur = (new Date()).getTime();
-    return <Chart exchange={ 'coinbase' } currency={ 'btcusd' } />;
+    return <div className="C">
+             <Chart key="1" exchange={ 'coinbase' } currency={ 'btcusd' } />
+             <Chart key="2" exchange={ 'coinbase' } currency={ 'btceur' } />
+           </div>;
   }
 }

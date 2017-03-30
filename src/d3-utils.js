@@ -45,7 +45,7 @@ var getLine = function(data) {
 
 var renderChart = function(el, s) {
   var SVG = d3.selectAll("svg").remove();
-  var SVG = d3.select('.Chart')
+  var SVG = d3.select(el)
     .append("svg")
     // .attr("width", "700px")
     // .attr("height", "300px")

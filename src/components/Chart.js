@@ -41,22 +41,22 @@ export default class Chart extends React.Component {
     });
 
     utils.renderChart(this.el, this.state);
-  }
+  };
+
 
   componentDidMount() {
 
     var url = u.getHost();
     var socket = io.connect(url);
-    var el = ReactDOM.findDOMNode(this);
-
-    var exCur = this.props.exchange + ':' + this.props.currency;
+    this.el = ReactDOM.findDOMNode(this);
+    this.exCur = this.props.exchange + ':' + this.props.currency;
 
     socket.on('data', this.handleNewData);
-    socket.emit('exchange', exCur);
+    socket.emit('exchange', this.exCur);
 
     // $.getJSON(url + '/data/'
     //   + this.lt + '-' + this.gt + '-coinbase:btcusd?callback=?')
-    var urlString = `${url}/data/${this.state.lt}-${this.state.gt}-${exCur}?callback=?`;
+    var urlString = `${url}/data/${this.state.lt}-${this.state.gt}-${this.exCur}?callback=?`;
 
     $.getJSON(urlString)
       .then((data) => {
@@ -71,12 +71,12 @@ export default class Chart extends React.Component {
         this.setState({
           data: _data
         });
-        utils.renderChart(el, this.state);
+        utils.renderChart(this.el, this.state);
       });
   }
 
   render() {
-    return (<div className="Chart">
+    return (<div className={ this.exCur }>
             </div>);
 
   }
