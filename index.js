@@ -47,6 +47,7 @@ var lastUpdated = 0;
 function emitNewData(data, callback) {
   lt = (new Date()).getTime();
   gt = lt - 3600000;
+    console.log(data);
   retrieve.connectAndGetData(lt, gt, data,
     (_items) => {
       var oldLastValue = items[items.length - 1];

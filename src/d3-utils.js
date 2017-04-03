@@ -43,6 +43,12 @@ var getLine = function(data) {
   return line;
 };
 
+var refreshChart = function(el, s) {
+    console.log("refresh called");
+    var svg = d3.select(el.className).select("path");
+    svg.attr("d", getLine(s.data));
+};
+
 var renderChart = function(el, s) {
   var SVG = d3.selectAll("svg").remove();
   var SVG = d3.select(el)
