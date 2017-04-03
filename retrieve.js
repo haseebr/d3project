@@ -20,7 +20,6 @@ function connectAndGetData(gt, lt, e, callback) {
 
 var getDataRange = function(gt, lt, e, db, callback) {
 
-  console.log(e);
   var result = db.collection('documents', (err, collection) => {
     collection.find({
       t: {

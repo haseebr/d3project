@@ -4,11 +4,9 @@ import * as ReactDOM from 'react-dom';
 import * as utils from '../d3-utils.js';
 import * as u from '../../utils';
 
-
 import $ from 'jquery';
 
-
-export default class Chart extends React.Component {
+export default class ChartContainer extends React.Component {
 
   constructor(props) {
     super(props);
@@ -30,6 +28,7 @@ export default class Chart extends React.Component {
     };
 
     this.handleNewData = this.handleNewData.bind(this);
+    this.exCur = this.props.exchange + '-' + this.props.currency;
   }
 
   handleNewData(data) {
@@ -49,7 +48,6 @@ export default class Chart extends React.Component {
     var url = u.getHost();
     var socket = io.connect(url);
     this.el = ReactDOM.findDOMNode(this);
-    this.exCur = this.props.exchange + ':' + this.props.currency;
 
     socket.on('data', this.handleNewData);
     socket.emit('exchange', this.exCur);

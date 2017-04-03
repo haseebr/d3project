@@ -22,6 +22,11 @@ router.get('/:gt-:lt-:e', function(req, res) {
   gt = parseInt(req.params.gt);
   lt = parseInt(req.params.lt);
   e = req.params.e;
+
+  if(e.includes('-')) {
+      e = e.replace('-', ':');
+  }
+
   retrieve.connectAndGetData(gt, lt, e,
     (_items) => {
       items = _items;
