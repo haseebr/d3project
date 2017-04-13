@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 var myAxes = function(data) {
   var x = d3.scaleTime()
     .domain(d3.extent(data, function(d) {
-        console.log(data);
+        console.log("extent function", data);
       return d[0];
     }))
     //    .range([0, window.innerWidth - 100]);
@@ -35,7 +35,7 @@ var getLine = function(data) {
 
   var line = d3.line()
     .x((d) => {
-        console.log(d);
+        console.log("line function", d);
       return x(d[0]);
     })
     .y((d) => {
