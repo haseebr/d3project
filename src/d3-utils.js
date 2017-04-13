@@ -1,3 +1,47 @@
+import * as d3 from 'd3';
+
+var myAxes = function(data) {
+  var x = d3.scaleTime()
+    .domain(d3.extent(data, function(d) {
+      return d[0];
+    }))
+    //    .range([0, window.innerWidth - 100]);
+    .range([0, 680]);
+
+  var y = d3.scaleLinear()
+    .domain(d3.extent(data, function(d) {
+      return d[1];
+    }))
+    //    .range([window.innerHeight - 50, 0]);
+    .range([280, 0]);
+
+  var axisX = d3.axisTop(x);
+  var axisY = d3.axisLeft(y);
+
+  return {
+    axisX: axisX,
+    axisY: axisY,
+    x: x,
+    y: y
+  };
+
+};
+
+var getLine = function(data) {
+
+  var x = myAxes(data).x;
+  var y = myAxes(data).y;
+
+  var line = d3.line()
+    .x((d) => {
+      return x(d[0]);
+    })
+    .y((d) => {
+      return y(d[1]);
+    });
+
+  return line;
+};
 
 var refreshChart = function(el, s) {
     var svg = d3.select(el).select("path");
