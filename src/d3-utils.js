@@ -3,7 +3,9 @@ import * as d3 from 'd3';
 var myAxes = function(data) {
   var x = d3.scaleTime()
     .domain(d3.extent(data, function(d) {
-        console.log("extent function", d[0]);
+        console.log(data);
+        console.log(typeof data);
+        // console.log("extent function", d[0]);
       return d[0];
     }))
     //    .range([0, window.innerWidth - 100]);
