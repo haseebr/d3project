@@ -3,8 +3,6 @@ import * as d3 from 'd3';
 var myAxes = function(data) {
   var x = d3.scaleTime()
     .domain(d3.extent(data, function(d) {
-        console.log(data);
-        console.log(typeof data);
         // console.log("extent function", d[0]);
       return d[0];
     }))
@@ -37,7 +35,6 @@ var getLine = function(data) {
 
   var line = d3.line()
     .x((d) => {
-        console.log("line function", d);
       return x(d[0]);
     })
     .y((d) => {
@@ -78,8 +75,6 @@ var renderChart = function(el, s) {
     //   .attr("transform", "translate(0, 283)")
     //   .call(myAxes(s.data).axisX);
 
-    console.log(s.data);
-    console.log(typeof s.data);
   g.append('path')
     .datum(s.data)
     .attr("fill", "none")
