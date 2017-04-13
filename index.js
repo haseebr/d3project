@@ -1,6 +1,7 @@
 
 var express = require('express');
 var app = express();
+var cors = require('cors');
 
 var router = express.Router();
 
@@ -13,6 +14,8 @@ var url = 'https://api.cryptowat.ch/markets/prices';
 
 app.set('port', (process.env.PORT || 5000));
 
+app.use(cors())
+
 app.use('/', express.static('dist'));
 var gt;
 var lt;
@@ -22,10 +25,6 @@ router.get('/:gt-:lt-:e', function(req, res) {
   gt = parseInt(req.params.gt);
   lt = parseInt(req.params.lt);
   e = req.params.e;
-
-  if(e.includes('-')) {
-      e = e.replace('-', ':');
-  }
 
   retrieve.connectAndGetData(gt, lt, e,
     (_items) => {
@@ -47,7 +46,6 @@ var lastUpdated = 0;
 function emitNewData(data, callback) {
   lt = (new Date()).getTime();
   gt = lt - 3600000;
-    console.log(data);
   retrieve.connectAndGetData(lt, gt, data,
     (_items) => {
       var oldLastValue = items[items.length - 1];

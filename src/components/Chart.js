@@ -28,7 +28,7 @@ export default class ChartContainer extends React.Component {
     };
 
     this.handleNewData = this.handleNewData.bind(this);
-    this.exCur = this.props.exchange + '-' + this.props.currency;
+    this.exCur = this.props.exchange + ':' + this.props.currency;
   }
 
   handleNewData(data) {
@@ -39,7 +39,7 @@ export default class ChartContainer extends React.Component {
       prevState.data.shift();
     });
 
-    utils.renderChart(this.el, this.state);
+    utils.refreshChart(this.el, this.state);
   };
 
 
