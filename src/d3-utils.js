@@ -76,6 +76,8 @@ var renderChart = function(el, s) {
     //   .attr("transform", "translate(0, 283)")
     //   .call(myAxes(s.data).axisX);
 
+    console.log(s.data);
+    console.log(typeof s.data);
   g.append('path')
     .datum(s.data)
     .attr("fill", "none")
