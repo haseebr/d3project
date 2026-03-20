@@ -1,0 +1,42 @@
+{
+  // OpenClaw Configuration
+  // Full reference: https://docs.openclaw.ai/gateway/configuration
+
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "anthropic/claude-sonnet-4-6"
+      },
+      "workspace": "~/.openclaw/workspace"
+    }
+  },
+
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "botToken": "${TELEGRAM_BOT_TOKEN}",
+
+      // DM access control: "allowlist" = only listed user IDs can DM the bot
+      // Other options: "pairing" (default), "open", "disabled"
+      "dmPolicy": "allowlist",
+
+      // Add your numeric Telegram user ID here (get it from @userinfobot)
+      "allowFrom": [],
+
+      // Group chat access: "allowlist" (default) | "open" | "disabled"
+      "groupPolicy": "disabled",
+
+      // Message streaming style: "partial" | "off" | "block" | "progress"
+      "streaming": "partial"
+    }
+  },
+
+  "sessions": {
+    // Scope conversations: "per-peer" = one session per user
+    // Other options: "per-channel-peer"
+    "scope": "per-peer",
+
+    // Keywords that reset the conversation context
+    "resetOnKeyword": ["/reset", "reset", "start over"]
+  }
+}

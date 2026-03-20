@@ -1,0 +1,44 @@
+services:
+  openclaw-gateway:
+    image: ${OPENCLAW_IMAGE:-ghcr.io/openclaw/openclaw:latest}
+    container_name: openclaw-gateway
+    restart: unless-stopped
+    ports:
+      - "18789:18789"
+      - "18790:18790"
+    volumes:
+      - ./config:/home/node/.openclaw
+      - ./workspace:/home/node/.openclaw/workspace
+      # Uncomment to enable Docker sandbox isolation:
+      # - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      HOME: /home/node
+      TERM: xterm-256color
+      TZ: ${OPENCLAW_TZ:-UTC}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+      OPENCLAW_GATEWAY_TOKEN: ${OPENCLAW_GATEWAY_TOKEN:-}
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:18789/healthz"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+  openclaw-cli:
+    image: ${OPENCLAW_IMAGE:-ghcr.io/openclaw/openclaw:latest}
+    container_name: openclaw-cli
+    profiles:
+      - cli
+    volumes:
+      - ./config:/home/node/.openclaw
+      - ./workspace:/home/node/.openclaw/workspace
+    environment:
+      HOME: /home/node
+      TERM: xterm-256color
+      TZ: ${OPENCLAW_TZ:-UTC}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+      OPENCLAW_GATEWAY_TOKEN: ${OPENCLAW_GATEWAY_TOKEN:-}
+      BROWSER: echo
+    entrypoint: ["openclaw"]

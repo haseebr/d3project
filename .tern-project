@@ -1,8 +1,0 @@
-{
-  "ecmaVersion": 5  ,
-  "plugins": {
-    "node": {},
-    "node-express": {},
-    "es_modules" : {}
-  }
-}

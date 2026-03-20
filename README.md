@@ -1,39 +1,124 @@
-# node-js-getting-started
+# OpenClaw — Self-Hosted AI Agent
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+A fully configured [OpenClaw](https://openclaw.ai) setup running on Docker Compose.
 
-This application supports the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
+**Stack:** Telegram · Anthropic Claude (claude-sonnet-4-6) · Docker Compose
 
-## Running Locally
+---
 
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
+## Prerequisites
 
-```sh
-$ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
-$ npm install
-$ npm start
+| Requirement | Notes |
+|-------------|-------|
+| [Docker](https://docs.docker.com/get-docker/) + Compose v2 | Min. 2 GB RAM |
+| Anthropic API key | [console.anthropic.com](https://console.anthropic.com) |
+| Telegram bot token | Create via [@BotFather](https://t.me/BotFather) → `/newbot` |
+
+---
+
+## Quickstart
+
+```bash
+# 1. Clone
+git clone <repo-url>
+cd <repo-dir>
+
+# 2. Configure secrets
+cp .env.example .env
+# Edit .env — fill in ANTHROPIC_API_KEY and TELEGRAM_BOT_TOKEN
+
+# 3. Start
+./setup.sh
 ```
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+Control UI opens at **http://localhost:18789**
 
-## Deploying to Heroku
+---
+
+## Add Yourself to the Allowlist
+
+By default the bot rejects all DMs (allowlist mode). To allow your Telegram account:
+
+1. Get your numeric Telegram user ID from [@userinfobot](https://t.me/userinfobot)
+2. Edit `config/openclaw.json` → add your ID to `channels.telegram.allowFrom`:
+   ```json
+   "allowFrom": [123456789]
+   ```
+3. Restart: `docker compose restart openclaw-gateway`
+
+---
+
+## File Structure
 
 ```
-$ heroku create
-$ git push heroku master
-$ heroku open
+.
+├── docker-compose.yml      # Service definitions
+├── setup.sh                # One-command bootstrap
+├── .env.example            # Environment variable template
+├── .gitignore
+├── config/
+│   └── openclaw.json       # OpenClaw configuration (Telegram + Claude)
+└── workspace/              # Agent sandbox (git-ignored, runtime only)
 ```
-or
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+---
 
-## Documentation
+## Configuration
 
-For more information about using Node.js on Heroku, see these Dev Center articles:
+All agent/channel settings live in `config/openclaw.json`.
 
-- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
+Key sections:
+
+| Section | What it controls |
+|---------|-----------------|
+| `agents.defaults.model` | LLM model (`anthropic/claude-sonnet-4-6`) |
+| `channels.telegram` | Bot token, DM access control, streaming mode |
+| `sessions` | Conversation scope and reset keywords |
+
+Full reference: [docs.openclaw.ai/gateway/configuration](https://docs.openclaw.ai/gateway/configuration)
+
+---
+
+## Common Commands
+
+```bash
+# View live logs
+docker compose logs -f openclaw-gateway
+
+# Stop
+docker compose down
+
+# Update to latest image
+docker compose pull && docker compose up -d
+
+# Run CLI commands (onboarding, diagnostics, etc.)
+docker compose --profile cli run --rm openclaw-cli <command>
+
+# Check health
+curl http://localhost:18789/healthz
+```
+
+---
+
+## Ports
+
+| Port | Purpose |
+|------|---------|
+| `18789` | Control UI + HTTP API |
+| `18790` | WebSocket bridge |
+
+---
+
+## Troubleshooting
+
+**Bot doesn't respond to messages**
+- Check your user ID is in `allowFrom` in `config/openclaw.json`
+- Verify `TELEGRAM_BOT_TOKEN` is correct in `.env`
+- Check logs: `docker compose logs openclaw-gateway`
+
+**Container exits immediately**
+- Ensure `ANTHROPIC_API_KEY` and `TELEGRAM_BOT_TOKEN` are set in `.env`
+- System needs at least 2 GB RAM for the image
+
+**Port already in use**
+- Change host ports in `docker-compose.yml` (e.g. `"19789:18789"`)

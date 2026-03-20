@@ -1,2 +1,18 @@
-.adminMongo/
-/data
+# Secrets - never commit these
+.env
+
+# Agent workspace (runtime files, not config)
+workspace/
+
+# OpenClaw state/session data
+config/state/
+config/logs/
+config/*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
